@@ -5,7 +5,7 @@
 }
 
 .formulario form{
-    max-width: 80%;
+    min-width: 50%;
     background-color: aquamarine;
     border-radius: 20px;
     padding: 36px 64px;
