@@ -9,7 +9,7 @@ const Rota = (props)=>{
        props.campeos.length > 0 ? <section className="rota" style={corFundo}>
             <h3 style={{borderColor: props.corPrimaria}}>{props.nome}</h3>
             <div className="campeos">            
-                {props.campeos.map(campeao => <Campeos nome={campeao.nome} tipo={campeao.tipo} img={campeao.img}/>)}
+                {props.campeos.map(campeao => <Campeos key={campeao.nome} corPrimaria={props.corPrimaria} nome={campeao.nome} tipo={campeao.tipo} img={campeao.img}/>)}
             </div>
         </section>
         :''

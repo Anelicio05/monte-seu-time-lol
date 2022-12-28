@@ -36,7 +36,6 @@ function App() {
   const [campeos, setCampeos] = useState([])
 
   function novoCampeaoCadastrado(campeao){
-    console.log(campeao)
     setCampeos([...campeos, campeao])
   }
 
