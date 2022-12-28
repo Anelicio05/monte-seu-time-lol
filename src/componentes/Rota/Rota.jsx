@@ -1,10 +1,18 @@
+import Campeos from "../Campeos/Campeos"
 import "../Rota/rota.css"
 
 const Rota = (props)=>{
+
+    const corFundo = {backgroundColor: props.corFundo}
+
     return(
-        <section className="rota">
-            <h3>{props.nome}</h3>
+       props.campeos.length > 0 ? <section className="rota" style={corFundo}>
+            <h3 style={{borderColor: props.corPrimaria}}>{props.nome}</h3>
+            <div className="campeos">            
+                {props.campeos.map(campeao => <Campeos nome={campeao.nome} tipo={campeao.tipo} img={campeao.img}/>)}
+            </div>
         </section>
+        :''
     )
 }
 

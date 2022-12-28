@@ -6,12 +6,7 @@ import ListaSuspensa from '../ListaSuspens/ListaSuspensa'
 
 const Formulario = (props) => {
 
-    const rotas = [
-        "Top",
-        "Mid",
-        "Bot",
-        "Selva"
-    ]
+   
 
     const [nome, setNome] = useState('')
     const [tipo, setTipo] = useState('')
@@ -27,6 +22,10 @@ const Formulario = (props) => {
             img,
             rota
         })
+        setNome('')
+        setImg('')
+        setTipo('')
+        setRota('')
     }
 
     return (
@@ -57,7 +56,7 @@ const Formulario = (props) => {
                     valor={rota}
                     aoAlterado={valor => setRota(valor)} 
                     label="Rota" 
-                    itens={rotas}
+                    itens={props.rotas}
                 />
                 <Botao>
                     Criar card

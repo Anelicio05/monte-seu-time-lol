@@ -5,20 +5,54 @@ import Rota from './componentes/Rota/Rota'
 
 function App() {
 
-  const [campeoes, setCampeos] = useState([])
+  const rotas = [
+    {
+      nome: "Top",
+      corFundo: "#C6E2FF",
+      corPrimaria: "#1E90FF"
+    },
+    {
+      nome: "Mid",
+      corFundo: "#D8BFD8",
+      corPrimaria: "#9400D3"
+    },
+    {
+      nome: "Bot",
+      corFundo: "#FFF3B0",
+      corPrimaria: "#FF5400"
+    },
+    {
+      nome: "Sup",
+      corFundo: "#F08080",
+      corPrimaria: "#DC143C"
+    },
+    {
+      nome: "Selva",
+      corFundo: "#98FB98",
+      corPrimaria: "#00CD00"
+    },
+  ]
+
+  const [campeos, setCampeos] = useState([])
 
   function novoCampeaoCadastrado(campeao){
     console.log(campeao)
-    setCampeos([...campeoes, campeao])
+    setCampeos([...campeos, campeao])
   }
 
   return (
     <div className='app'>
+
       <Banner/>
-      <Formulario  aoCampeaoCadastrado={campeao=> novoCampeaoCadastrado(campeao)}/>
-      <Rota nome={"Mid"}/>
-      <Rota nome={"Top"}/>
-      <Rota nome={"Selva"}/>
+      <Formulario rotas={rotas.map(rota => rota.nome)} aoCampeaoCadastrado={campeao=> novoCampeaoCadastrado(campeao)}/>
+      {rotas.map(rota => <Rota
+        key={rota.nome} 
+        nome={rota.nome} 
+        corFundo={rota.corFundo} 
+        corPrimaria={rota.corPrimaria}
+        campeos={campeos.filter(campeao => campeao.rota === rota.nome)}
+      />)}
+
     </div>
   )
 }
